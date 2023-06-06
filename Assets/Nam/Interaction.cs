@@ -15,6 +15,7 @@ public class Interaction : MonoBehaviour
 
     private bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
 
+    /*
     private void Update()
     {
 
@@ -75,7 +76,7 @@ public class Interaction : MonoBehaviour
             }
         }
     }
-
+    */
     private void OnDrawGizmosSelected()
     {
         // 트리거 범위를 시각적으로 표시
