@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+
   - Door
+  - Ghost
+
   layers:
   - Default
   - TransparentFX
@@ -14,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player_Layer
+  - Ghost_Layer
+  - Object_Layer
   - 
   - 
   - 
