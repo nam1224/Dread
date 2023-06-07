@@ -3,7 +3,8 @@ using System.Collections;
 
 public class DoorController : MonoBehaviour
 {
-    public int OpenDgree = -90;
+    public int OpenYDgree = -90;
+    public int OpenXDgree = 0;
     public float openSpeed = 2f; // 문이 열리는 속도
 
     private bool isOpen = false; // 문이 열려있는지 여부를 추적하기 위한 변수
@@ -17,7 +18,7 @@ public class DoorController : MonoBehaviour
     {
         // 닫힌 상태와 열린 상태의 회전값 계산
         closedRotation = transform.rotation;
-        openedRotation = Quaternion.Euler(0, OpenDgree, 0);
+        openedRotation = Quaternion.Euler(OpenXDgree, OpenYDgree, 0);
     }
 
     private void Update()
