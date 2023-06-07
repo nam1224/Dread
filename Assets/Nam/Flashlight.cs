@@ -11,7 +11,7 @@ public class Flashlight : MonoBehaviour
     
     private void Start()
     {
-        //light.intensity = 1.5f;
+
     }
 
     void Update()
