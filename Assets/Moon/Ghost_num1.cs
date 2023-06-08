@@ -29,7 +29,7 @@ public class Ghost_num1 : MonoBehaviour
         }
         
 
-        if(Spawn ==true)  // 귀신이 활동이 가능해질경우 범위안에 들어오는 플레이어를 탐지합니다
+        if(Spawn == true)  // 귀신이 활동이 가능해질경우 범위안에 들어오는 플레이어를 탐지합니다
         {
              // 플레이어를 탐지하는 코드입니다.
             Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);

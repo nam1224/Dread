@@ -32,6 +32,6 @@ public class PlayerMove : MonoBehaviour
         Vector3 rightMovement = transform.right * horizInput;
 
         //simple move applies delta time automatically
-        charController.SimpleMove(forwardMovement + rightMovement);
+        charController.SimpleMove(forwardMovement.normalized + rightMovement.normalized);
     }
 }
