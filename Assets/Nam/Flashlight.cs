@@ -8,7 +8,7 @@ public class Flashlight : MonoBehaviour
 {
     public Light light;
     private bool isOn = true;
-    
+
     private void Start()
     {
 
@@ -16,18 +16,21 @@ public class Flashlight : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             lightOn(isOn);
         }
     }
 
+
+    //¼ÕÀüµî on / off
+    public int brightness = 10;
     void lightOn(bool _isOn)
     {
-        if(_isOn)
+        if (_isOn)
         {
             Debug.Log("on");
-            light.range = 50;
+            light.range = brightness;
             isOn = false;
         }
         else
