@@ -25,17 +25,13 @@ public class PlayerMove : MonoBehaviour
 
     private void PlayerMovement()
     {
-        float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
+        float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;     //CharacterController.SimpleMove() applies deltaTime
         float horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
 
-        Vector3 forwardMovement = (transform.forward * vertInput);
-        Vector3 rightMovement = (transform.right * horizInput);
+        Vector3 forwardMovement = transform.forward * vertInput;
+        Vector3 rightMovement = transform.right * horizInput;
 
-        Vector3 movement =  forwardMovement + rightMovement;
-
-        //Vector3.ClampMagnitude(이동방향, 이동속도 최댓값)
-        movement = Vector3.ClampMagnitude(movement, movementSpeed);
-
-        charController.SimpleMove(movement);
+        //simple move applies delta time automatically
+        charController.SimpleMove(forwardMovement.normalized + rightMovement.normalized);
     }
 }
