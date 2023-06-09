@@ -13,14 +13,24 @@ public class TextManager : MonoBehaviour
     }
     public void Text(string atribute)
     {
-        //if (talkPanel == false)
+        if (talkPanel.activeSelf == false)
         {
-            if (atribute == "Door")
+            if (atribute == "Locked")
             {
-                talkPanel.SetActive(true);
                 talkText.text = "문이 잠겨있습니다.";
+                talkPanel.SetActive(true);         
+                StartCoroutine(CallFunctionWithDelay());
             }
         }
+    }
+    IEnumerator CallFunctionWithDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        DeleteText();
+    }
+    public void DeleteText()
+    {
+        talkPanel.SetActive(false);
     }
 
     void Update()
