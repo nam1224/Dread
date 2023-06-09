@@ -28,15 +28,25 @@ public class DoorController : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E) && doorAnimationCoroutine == null)
         {
-            // 플레이어가 문 주변에서 E 키를 누르고 문 애니메이션이 진행 중이 아닐 때만 문을 열거나 닫기
-            if (isOpen)
+            //문의 잠김 여부에 따라 다르게
+            if(locked == false)
             {
-                CloseDoor();
+                // 플레이어가 문 주변에서 E 키를 누르고 문 애니메이션이 진행 중이 아닐 때만 문을 열거나 닫기
+                if (isOpen)
+                {
+                    CloseDoor();
+                }
+                else
+                {
+                    OpenDoor();
+                }
             }
-            else
+            else if(locked==true)
             {
-                OpenDoor();
+                textmanager.Text("Locked");
             }
+            
+
         }
     }
 
