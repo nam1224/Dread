@@ -1723,6 +1723,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerInRange: 0
   GhostFace: {fileID: 226255542}
 --- !u!4 &599295117
 Transform:
@@ -4416,6 +4417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 1049062357}
+  energy: 0
   brightness: 10
 --- !u!1 &1650439659
 GameObject:
@@ -5607,7 +5609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInputName: Horizontal
   verticalInputName: Vertical
-  movementSpeed: 2
+  movementSpeed: 4
 --- !u!33 &8581327704987342806
 MeshFilter:
   m_ObjectHideFlags: 0
