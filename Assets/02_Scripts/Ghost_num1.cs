@@ -17,8 +17,33 @@ public class Ghost_num1 : Ghost
     private bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
     */
     public GameObject GhostFace;
-    
 
-    //제작 예정 
 
+    override public void Ghostact0()
+    {
+
+        Debug.Log("GhostKillYou");
+        GhostFace.gameObject.SetActive(true);
+    }
+    override public void Ghostact1()
+    {
+        Debug.Log("GhostUnSpawn");
+        Spawn = false;
+        PlayerInTime = 0f; 
+        TriggerTime = 4f;
+    }
+    override public void GhostSound1()
+    {
+        //고스트 사운드 출력방식
+        /*
+        고스트 개별로 배열을 받음 (사운드 리소스)
+        고스트 사운드 1,2 함수에서 해당하는 고스트 사운드를 출력함 (등장,추격및 비명)
+
+        */
+    }
+
+    override public void GhostSound2()
+    {
+
+    }
 }

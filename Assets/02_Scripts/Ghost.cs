@@ -33,9 +33,9 @@ public class Ghost : MonoBehaviour
         }
     }
 
+    // 귀신의 따라 행동하는 방식이 다릅니다 이를 해결하기위해 부모객체를 만들고 자식객체에서 해당하는 코드를 업데이트 하여 사용합니다.
 
-
-    public void GhostAct()
+    virtual public void GhostAct()
     {
             Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
             bool isPlayerInRange = colliders.Length > 0;
@@ -56,7 +56,7 @@ public class Ghost : MonoBehaviour
             playerInRange = true;
             // 이벤트 발생 코드 작성
 
-            GhostSound();
+            GhostSound1();
             // 사운드매니저에 접근하여 사운드를 재생해야합니다.
         }
         // 플레이어가 범위를 벗어났을 때 플래그 업데이트
@@ -73,6 +73,8 @@ public class Ghost : MonoBehaviour
 
         }
     }
+
+    
     virtual public void Ghostact0()
     {
         Debug.Log("Ghost_act0");
@@ -81,9 +83,13 @@ public class Ghost : MonoBehaviour
     {
         Debug.Log("Ghost_act1");
     }
-    virtual public void GhostSound()
+    virtual public void GhostSound1()
     {
-        Debug.Log("GhostSound_Play");
+        Debug.Log("GhostSound_Play1");
+    }
+    virtual public void GhostSound2()
+    {
+        Debug.Log("GhostSound_Play2");
     }
     private void OnDrawGizmosSelected()
     {
