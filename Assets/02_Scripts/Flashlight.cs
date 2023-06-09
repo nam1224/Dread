@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//베터리가 줄수록 빛의 세기도 줄어든다.
+//시간이 흐르면 베터리가 줄고, 베터리가 줄면 빛의 세기도 줄어든다.
 
 public class Flashlight : MonoBehaviour
 {
     public Light light;
-    private bool isOn = true;
+    public float energy; //현재 베터리의 양
+    private float ENERGY_MAX = 100; //베터리의 최대양
+
+    private float useTime; //사용한 시간
+    private float USE_TIME_MAX = 300; //사용할 수 있는 최대 시간
+
+    private bool isOn = true; //손전등 on, off
 
     private void Start()
     {
