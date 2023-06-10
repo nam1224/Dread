@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.00001898033, g: 0.000000036216793, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1586,60 +1586,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9de49b379b5211459f7cd895a89bbb8, type: 3}
   m_PrefabInstance: {fileID: 8606311150662149079}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &599295115
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 599295117}
-  - component: {fileID: 599295116}
-  m_Layer: 0
-  m_Name: ToiletGhostSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &599295116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599295115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b198f542000da44e8995a78d067421b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Spawn: 0
-  SpawnTimer: 10
-  PlayerInTime: 0
-  TriggerTime: 4
-  triggerRadius: 5
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  playerInRange: 0
-  GhostFace: {fileID: 226255542}
---- !u!4 &599295117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599295115}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.44, y: 5.63, z: 3.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &601686506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,7 +3446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1326628868
 Light:
   m_ObjectHideFlags: 0
@@ -137370,3 +137316,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 0f304a07c938e6c4babe95098ea5b71c, type: 3}
+--- !u!1001 &8875176554083055458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8875176553584423913, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_Name
+      value: ToiletGhostSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423918, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: GhostFace
+      value: 
+      objectReference: {fileID: 226255542}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}

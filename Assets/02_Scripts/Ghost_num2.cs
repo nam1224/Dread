@@ -92,6 +92,7 @@ public class Ghost_num2 : Ghost
     override public void Ghostact1()
     {
         // 해당 귀신이 플레이어의 전력을 깎는 함수를 호출함.
+        Debug.Log("Ghost Attack!");
     }
     override public void GhostSound1()
     {
