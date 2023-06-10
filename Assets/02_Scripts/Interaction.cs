@@ -11,21 +11,23 @@ public class Interaction : MonoBehaviour
 
     private void Start()
     {
-
+        
     }
 
+    //Flashlight중 chargeEnergy를 사용하기 위함
+    public Flashlight flashlight;
     private void Update()
     {
-        Debug.Log("flashlight.energy : "+flashlight.energy);
         // 플레이어를 탐지하는 코드입니다.
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
         bool isPlayerInRange = colliders.Length > 0;
+
 
         // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
         if (isPlayerInRange && !itemInRange)
         {
             itemInRange = true;
-            Debug.Log("플레이어가 범위에 들어옴");
+            //Debug.Log("플레이어가 범위에 들어옴");
         }
 
         //플레이어가 범위에 계속 머무를 때
@@ -37,6 +39,7 @@ public class Interaction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Bettery")
                 {
                     //에너지를 충전함
+                    flashlight.GetComponent<Flashlight>().chargeEnergy();
                     Debug.Log("에너지 충전");
                 }
         }
@@ -45,16 +48,8 @@ public class Interaction : MonoBehaviour
         else if (!isPlayerInRange && itemInRange)
         {
             itemInRange = false;
-            Debug.Log("플레이어가 범위를 벗어남");
+            //Debug.Log("플레이어가 범위를 벗어남");
         }
-    }
-
-
-    Flashlight flashlight;
-    //베터리 충전 함수
-    void chargeEnergy()
-    {
-
     }
 
     private void OnDrawGizmosSelected()
