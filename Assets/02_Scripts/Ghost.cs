@@ -15,7 +15,7 @@ public class Ghost : MonoBehaviour
     public  bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
 
 
-    private void Update()
+    virtual public void Update()
     {
         if (Spawn == false)
         {
