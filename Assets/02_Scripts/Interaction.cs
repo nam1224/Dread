@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeInteraction : MonoBehaviour
+public class Interaction : MonoBehaviour
 {
-    public float triggerRadius = 5f; // 이벤트를 발생시킬 범위의 반지름 입니다
-    public LayerMask targetLayer; // 플레이어를 확인할 레이어 입니다 플레이어의 레이어는 Player_Layer 입니다
+    public float triggerRadius = 5f; //플레이어가 이동하면서 상호작용 가능한 물체르 탐지할 범위
+    public LayerMask targetLayer; //플레이어가 탐지할 레이어는 Item
 
     private bool itemInRange = false;
 
+    private void Start()
+    {
+
+    }
+
     private void Update()
     {
+        Debug.Log("flashlight.energy : "+flashlight.energy);
         // 플레이어를 탐지하는 코드입니다.
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
         bool isPlayerInRange = colliders.Length > 0;
@@ -23,15 +29,16 @@ public class ChargeInteraction : MonoBehaviour
         }
 
         //플레이어가 범위에 계속 머무를 때
-        else if(isPlayerInRange && itemInRange)
+        else if (isPlayerInRange && itemInRange)
         {
             Debug.Log("플레이어가 범위에서 머무르는 중");
             //플레이어가 E키를 누른다면
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                //에너지를 충전함
-                Debug.Log("에너지 충전");
-            }
+            for (int i = 0; i < colliders.Length; i++)
+                if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Bettery")
+                {
+                    //에너지를 충전함
+                    Debug.Log("에너지 충전");
+                }
         }
 
         // 플레이어가 범위를 벗어났을 때 플래그 업데이트
@@ -40,6 +47,14 @@ public class ChargeInteraction : MonoBehaviour
             itemInRange = false;
             Debug.Log("플레이어가 범위를 벗어남");
         }
+    }
+
+
+    Flashlight flashlight;
+    //베터리 충전 함수
+    void chargeEnergy()
+    {
+
     }
 
     private void OnDrawGizmosSelected()
