@@ -19,7 +19,7 @@ public class Ghost_num1 : Ghost
     public GameObject GhostFace;
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
-    public AudioClip[] GhostSound;
+
     override public void GhostAct()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);

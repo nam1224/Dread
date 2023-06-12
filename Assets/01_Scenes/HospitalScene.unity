@@ -138251,6 +138251,14 @@ PrefabInstance:
       propertyPath: GhostFace
       value: 
       objectReference: {fileID: 226255542}
+    - target: {fileID: 8875176553584423918, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: GhostSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e20b72d2b49c3f498abff133b0f735b, type: 3}
+    - target: {fileID: 8875176553584423918, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
+      propertyPath: GhostSound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ade4fdcb16fd8154faa3ece16033999f, type: 3}
     - target: {fileID: 8875176553584423919, guid: 63a60d7c0735fc34ea15ea0a61affc4e, type: 3}
       propertyPath: m_RootOrder
       value: 3
