@@ -6,8 +6,8 @@ public class DoorController : MonoBehaviour
     public int OpenYDgree = -90;
     public int OpenXDgree = 0;
     public float openSpeed = 2f; // 문이 열리는 속도
-    public bool locked;
     public TextManager textmanager;
+    public GameObject doorKey;  
 
     private bool isOpen = false; // 문이 열려있는지 여부를 추적하기 위한 변수
     private bool isDoorAnimating = false; // 문 애니메이션이 진행 중인지 여부를 추적하기 위한 변수
@@ -28,8 +28,7 @@ public class DoorController : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E) && doorAnimationCoroutine == null)
         {
-            //문의 잠김 여부에 따라 다르게
-            if(locked == false)
+            if(doorKey.activeSelf == false) //도어키가 비활성화 상태라면 조건에 따라 문 작동
             {
                 // 플레이어가 문 주변에서 E 키를 누르고 문 애니메이션이 진행 중이 아닐 때만 문을 열거나 닫기
                 if (isOpen)
@@ -41,9 +40,9 @@ public class DoorController : MonoBehaviour
                     OpenDoor();
                 }
             }
-            else if(locked==true)
+            else if(doorKey.activeSelf == true) //도어키가 활성화 상태면 잠겨있다는 메시지 출력
             {
-                textmanager.Text("Locked");
+                textmanager.Text("Locked","");
             }
             
 

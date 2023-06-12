@@ -16,6 +16,7 @@ public class Interaction : MonoBehaviour
 
     //Flashlight중 chargeEnergy를 사용하기 위함
     public Flashlight flashlight;
+    public TextManager textmanager;
     private void Update()
     {
         // 플레이어를 탐지하는 코드입니다.
@@ -41,6 +42,12 @@ public class Interaction : MonoBehaviour
                     //에너지를 충전함
                     flashlight.GetComponent<Flashlight>().chargeEnergy();
                     Debug.Log("에너지 충전");
+                }
+                else if(Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Key")
+                {
+                    this.gameObject.SetActive(false);
+                    textmanager.Text("GetKey",this.gameObject.ToString());
+                    Debug.Log("열쇠를 먹어버림");
                 }
         }
 
