@@ -12,9 +12,8 @@ public class Ghost : MonoBehaviour
     public float triggerRadius = 5f; // 이벤트를 발생시킬 범위의 반지름 입니다
     public LayerMask targetLayer; // 플레이어를 확인할 레이어 입니다 플레이어의 레이어는 Player_Layer 입니다
 
-    public bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
+    public  bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
 
-    
 
     virtual public void Update()
     {
@@ -79,7 +78,6 @@ public class Ghost : MonoBehaviour
     virtual public void Ghostact0()
     {
         Debug.Log("Ghost_act0");
-      
     }
     virtual public void Ghostact1()
     {

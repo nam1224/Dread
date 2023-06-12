@@ -11,14 +11,20 @@ public class TextManager : MonoBehaviour
     {
         talkPanel.SetActive(false);
     }
-    public void Text(string atribute)
+    public void Text(string atribute,string keyName)
     {
         if (talkPanel.activeSelf == false)
         {
             if (atribute == "Locked")
             {
-                talkText.text = "문이 잠겨있습니다.";
+                talkText.text = "문이 잠겨있다.";
                 talkPanel.SetActive(true);         
+                StartCoroutine(CallFunctionWithDelay());
+            }
+            else if(atribute == "GetKey")
+            {
+                talkText.text = keyName +" 열쇠를 얻었다.";
+                talkPanel.SetActive(true);
                 StartCoroutine(CallFunctionWithDelay());
             }
         }
