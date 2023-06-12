@@ -17,12 +17,54 @@ public class Ghost_num1 : Ghost
     private bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
     */
     public GameObject GhostFace;
+    public GameObject Ghost_obj;
+    public AudioSource GhostAudio;
+    public AudioClip[] GhostSound;
+    override public void GhostAct()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
+        bool isPlayerInRange = colliders.Length > 0;
+
+        if (playerInRange == true) // 플레이어가 범위안에 들어와 대기시간만큼 기다릴경우 행동하는코드입니다
+        {
+            PlayerInTime += Time.deltaTime;
+
+            if (PlayerInTime >= TriggerTime)
+            {
+                Ghostact1();
+            }
+
+        }
+        // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
+        if (isPlayerInRange && !playerInRange)
+        {
+            playerInRange = true;
+            // 이벤트 발생 코드 작성
+
+            GhostSound1();
+            // 사운드매니저에 접근하여 사운드를 재생해야합니다.
+        }
+        // 플레이어가 범위를 벗어났을 때 플래그 업데이트
+        else if (!isPlayerInRange && playerInRange)
+        {
+            playerInRange = false;
+            // 플레이어가 범위를 벗어난 경우에 대한 처리 코드 작성
+            if (PlayerInTime < TriggerTime)
+            {
+                Ghostact0();
+                //귀신이 플레이어를 죽이는 함수를 호출합니다
+
+            }
+
+        }
+    }
 
 
     override public void Ghostact0()
     {
 
         Debug.Log("GhostKillYou");
+
         GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()
@@ -42,7 +84,7 @@ public class Ghost_num1 : Ghost
         */
     }
 
-    override public void GhostSound2()
+    override public void GhostSound2() //kill
     {
 
     }
