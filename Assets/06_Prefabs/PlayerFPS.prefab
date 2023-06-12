@@ -47,6 +47,7 @@ MonoBehaviour:
   light: {fileID: 3234161782217634009}
   energy: 0
   brightness: 10
+  chargeAmount: 100
 --- !u!1 &3234161782217634015
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +253,7 @@ GameObject:
   - component: {fileID: 4005010330349396569}
   - component: {fileID: 4005010330349396568}
   - component: {fileID: 1835381348244649425}
+  - component: {fileID: 4001773584483291731}
   m_Layer: 6
   m_Name: PlayerFPS
   m_TagString: Player
@@ -308,6 +310,23 @@ MonoBehaviour:
   horizontalInputName: Horizontal
   verticalInputName: Vertical
   movementSpeed: 4
+--- !u!114 &4001773584483291731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4005010330349396566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c71988a67ddf24f86e303e4ad5fbdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerRadius: 5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  flashlight: {fileID: 3234161781161049487}
 --- !u!1 &4005010330982861406
 GameObject:
   m_ObjectHideFlags: 0
