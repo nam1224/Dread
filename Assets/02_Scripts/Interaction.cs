@@ -43,10 +43,10 @@ public class Interaction : MonoBehaviour
                     flashlight.GetComponent<Flashlight>().chargeEnergy();
                     Debug.Log("에너지 충전");
                 }
-                else if(Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Key")
+                else if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Key")
                 {
-                    this.gameObject.SetActive(false);
-                    textmanager.Text("GetKey",this.gameObject.ToString());
+                    colliders[i].gameObject.SetActive(false);
+                    textmanager.Text("GetKey", colliders[i].gameObject.ToString());
                     Debug.Log("열쇠를 먹어버림");
                 }
         }
