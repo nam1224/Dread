@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
             Debug.Log("플레이어가 범위에서 머무르는 중");
             //플레이어가 E키를 누른다면
             for (int i = 0; i < colliders.Length; i++)
-                if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Bettery")
+                if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Baterry")
                 {
                     //에너지를 충전함
                     flashlight.GetComponent<Flashlight>().chargeEnergy();
