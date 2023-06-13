@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaverPuzzle : MonoBehaviour
+public class LeverPuzzle : MonoBehaviour
 {
-    public GameObject[] lavers = new GameObject[5]; //래버를 받아올 배열
-    public GameObject[] bulb = new GameObject[5]; //전구를 받아올 배열
-
     private bool[] isOn = new bool[5]; //전구 on, off를 확인할 배열
-
     public Light[] lights = new Light[5]; //전구 불빛을 받아올 배열
+
+    [SerializeField] List<Lever> leverSystem = new List<Lever>();
+
+    public void WorkBulb()
+    {
+        
+    }
 
     private void Start()
     {
@@ -25,4 +28,12 @@ public class LaverPuzzle : MonoBehaviour
             isOn[i] = false;
         }
     }
+}
+
+[System.Serializable]
+public class Lever
+{
+    public GameObject levers; //래버를 받아올 배열
+    [SerializeField]
+    public List<Light> list_bulb = new List<Light>(); //전구 배열을 받아올 리스트
 }
