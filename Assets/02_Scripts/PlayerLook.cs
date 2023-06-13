@@ -12,8 +12,6 @@ public class PlayerLook : MonoBehaviour
     private float xAxisClamp;
     private bool m_cursorIsLocked = true;
 
-    public GameObject op ;
-
     private void Awake()
     {
         LockCursor();

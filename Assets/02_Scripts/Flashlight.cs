@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //시간이 흐르면 베터리가 줄고, 베터리가 줄면 빛의 세기도 줄어든다.
 
@@ -14,8 +15,14 @@ public class Flashlight : MonoBehaviour
 
     private bool isOn = false; //손전등 on, off
 
+    public Image image; // 이미지 컴포넌트를 할당하기 위한 변수
+
+    private RectTransform imageRectTransform; // 이미지의 RectTransform 컴포넌트
+
+
     private void Start()
     {
+        imageRectTransform = image.GetComponent<RectTransform>();
 
     }
 
@@ -35,6 +42,16 @@ public class Flashlight : MonoBehaviour
         {
             lightOn(isOn);
         }
+        float newWidth = energy/3; // 변경할 너비 값
+
+        // 이미지의 현재 RectTransform 값 복사
+        Vector2 sizeDelta = imageRectTransform.sizeDelta;
+
+        // 너비 변경
+        sizeDelta.x = newWidth;
+
+        // 변경된 너비를 이미지에 적용
+        imageRectTransform.sizeDelta = sizeDelta;
     }
 
 
