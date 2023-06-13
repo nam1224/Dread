@@ -6,21 +6,23 @@ public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private string mouseXInputName = "Mouse X";
     [SerializeField] private string mouseYInputName = "Mouse Y";
-    [SerializeField] private float mouseSensitivity = 150f;
+    [SerializeField] public float mouseSensitivity = 150f;
 
     [SerializeField] private Transform playerBody;
     private float xAxisClamp;
     private bool m_cursorIsLocked = true;
 
+    public GameObject op ;
+
     private void Awake()
     {
         LockCursor();
         xAxisClamp = 0.0f;
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }
 
     private void LockCursor()
     {
-       
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             m_cursorIsLocked = false;
