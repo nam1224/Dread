@@ -134,4 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367f1cbbd62becf4da7ed0b237511ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Spawn: 0
+  SpawnTimer: 10
+  PlayerInTime: 0
+  TriggerTime: 4
+  triggerRadius: 4.53
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerInRange: 0
   PlayerTarget: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GhostFollow : MonoBehaviour
+public class GhostFollow : Ghost
 {
     private NavMeshAgent Ghost;
 
@@ -14,6 +14,16 @@ public class GhostFollow : MonoBehaviour
         Ghost = GetComponent<NavMeshAgent>();
     }
 
+
+
+    override public void Ghostact0()
+    {
+        Debug.Log("Ghost_act0");
+    }
+    override public void Ghostact1()
+    {
+        Debug.Log("Ghost_act1");
+    }
     // Update is called once per frame
     void Update()
     {
