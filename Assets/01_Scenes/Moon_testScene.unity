@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -494,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479996564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0.41999996, z: 0}
+  m_LocalPosition: {x: 0.40999997, y: -0.41999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -690,7 +690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699367973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.41999996, z: 0}
+  m_LocalPosition: {x: -1.09, y: -0.41999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -788,7 +788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760620436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -0.42, z: 0}
+  m_LocalPosition: {x: -2.5900002, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -984,7 +984,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808036070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -0.41999996, z: 0}
+  m_LocalPosition: {x: -4.09, y: -0.41999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1837,7 +1837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644147063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.41999996, z: 0}
+  m_LocalPosition: {x: 1.91, y: -0.41999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2498,8 +2498,16 @@ MonoBehaviour:
   - {fileID: 1182712929}
   isOn: 0000000000
   levers:
-  - levers: {fileID: 0}
-    lever_lights: []
+  - levers: {fileID: 1644147063}
+    lightIndex: 0100000004000000
+  - levers: {fileID: 479996564}
+    lightIndex: 0100000003000000
+  - levers: {fileID: 699367973}
+    lightIndex: 0200000005000000
+  - levers: {fileID: 760620436}
+    lightIndex: 010000000300000005000000
+  - levers: {fileID: 808036070}
+    lightIndex: 0200000004000000
 --- !u!4 &1902386580
 Transform:
   m_ObjectHideFlags: 0
@@ -2789,6 +2797,8 @@ MonoBehaviour:
     m_Bits: 128
   flashlight: {fileID: 3234161780678578778}
   textmanager: {fileID: 0}
+  leverPuzzle: {fileID: 1902386579}
+  cam: {fileID: 4005010330500638135}
 --- !u!4 &4005010330500638090
 Transform:
   m_ObjectHideFlags: 0
@@ -2903,14 +2913,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4005010330500638091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eacbcbab4c649c4478fa85b3ce20d464, type: 3}
+  m_Script: {fileID: 11500000, guid: 499c06e6f12a1c1428ee1e262eeb4c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseXInputName: Mouse X
   mouseYInputName: Mouse Y
   mouseSensitivity: 150
   playerBody: {fileID: 4005010330873531788}
-  cam: {fileID: 4005010330500638135}
 --- !u!1 &4005010330873531779
 GameObject:
   m_ObjectHideFlags: 0
