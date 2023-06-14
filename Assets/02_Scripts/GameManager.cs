@@ -49,11 +49,14 @@ public class GameManager : MonoBehaviour
         {
             OptionButton();
         }
+        if (optionPanel)
+        {
+            PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);
+        }
 
     }
     public void StartButton()
     {
-        PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);
         SceneManager.LoadScene("HospitalScene");
         m_cursorIsLocked = true;
     }

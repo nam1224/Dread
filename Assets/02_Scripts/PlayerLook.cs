@@ -17,7 +17,6 @@ public class PlayerLook : MonoBehaviour
     {
         //LockCursor();
         xAxisClamp = 0.0f;
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
     }
     /*
     private void LockCursor()
@@ -46,6 +45,7 @@ public class PlayerLook : MonoBehaviour
     */
     private void Update()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
         CameraRotation();
     }
 
