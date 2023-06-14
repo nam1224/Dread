@@ -42,6 +42,7 @@ public class Flashlight : MonoBehaviour
         {
             lightOn(isOn);
         }
+
         float newWidth = energy/3; // 변경할 너비 값
 
         // 이미지의 현재 RectTransform 값 복사
