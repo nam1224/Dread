@@ -9,20 +9,38 @@ public class Interaction : MonoBehaviour
 
     private bool itemInRange = false;
 
+    Vector3 screenCenter;
     private void Start()
     {
-        
+        screenCenter = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2);
     }
 
     //Flashlight중 chargeEnergy를 사용하기 위함
     public Flashlight flashlight;
     public TextManager textmanager;
+    public LeverPuzzle leverPuzzle;
+
+    //Raycast와 같이 사용할 친구들~
+    public Camera cam;
+    RaycastHit hit;
+
+
     private void Update()
     {
         // 플레이어를 탐지하는 코드입니다.
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
         bool isPlayerInRange = colliders.Length > 0;
 
+        Ray ray = cam.ScreenPointToRay(screenCenter);
+        Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
+        //Physics.Raycast(ray 원점 위치, 레이저 쏠 방향, 충돌 감지 hit)
+        //Raycast에 오브젝트가 감지되고 마우스가 클릭됐다면
+        if (Physics.Raycast(transform.position, transform.forward, out hit) && Input.GetMouseButtonDown(0))
+        {
+            //감지할 오브젝트와 관련된 함수
+            leverPuzzle.PullLever(hit);
+            Debug.Log(hit.collider.name);
+        }
 
         // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
         if (isPlayerInRange && !itemInRange)

@@ -6,5 +6,5 @@ using UnityEngine;
 public class Lever
 {
     public GameObject levers; //래버
-    public Light[] lever_lights; //연결되어 있는 빛
+    public int[] lightIndex; //연결되어 있는 빛의 인덱스
 }
