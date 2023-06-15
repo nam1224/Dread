@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
+    // 게임에서 얻는 아이템 이나 상호작용을 할때 어떤 일이 발생했는지 설명하는 텍스트를 UI로 시각화 자세한 코드 설명은 우준혁 내용넣기바람.
+
     public GameObject talkPanel;
     public Text talkText;
     void Start()

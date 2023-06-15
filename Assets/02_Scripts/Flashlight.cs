@@ -53,6 +53,11 @@ public class Flashlight : MonoBehaviour
 
         // 변경된 너비를 이미지에 적용
         imageRectTransform.sizeDelta = sizeDelta;
+
+        if (energy <= 0)  //if player enegry <= 0 = player die
+        { 
+            
+        }
     }
 
 
@@ -83,5 +88,10 @@ public class Flashlight : MonoBehaviour
         if (energy > ENERGY_MAX) energy = ENERGY_MAX;
         if (useTime < 0) useTime = 0;
         Debug.Log(energy + useTime);
+    }
+
+    public void EnergyDown(int G_damage)
+    {
+        energy -= G_damage;
     }
 }

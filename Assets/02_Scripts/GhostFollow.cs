@@ -6,12 +6,14 @@ using UnityEngine.AI;
 public class GhostFollow : Ghost
 {
     private NavMeshAgent Ghost;
-
+    
+    public int GhostDamage = 1; //최소치 1 이후 각 고스트마다 자식 으로 변경해야함.
     public Transform PlayerTarget;
     // Start is called before the first frame update
     void Start()
     {
         Ghost = GetComponent<NavMeshAgent>();
+        PlayerTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
 
