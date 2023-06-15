@@ -58,7 +58,7 @@ public class Interaction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Baterry")
                 {
                     //에너지를 충전함
-                    flashlight.GetComponent<Flashlight>().chargeEnergy();
+                    flashlight.GetComponent<Flashlight>().ChargeEnergy();
                     Debug.Log("에너지 충전");
                 }
                 else if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Key")

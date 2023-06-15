@@ -40,7 +40,7 @@ public class Flashlight : MonoBehaviour
         useTime += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            lightOn(isOn);
+            LightOn(isOn);
         }
 
         float newWidth = energy/3; // 변경할 너비 값
@@ -58,7 +58,7 @@ public class Flashlight : MonoBehaviour
 
     //손전등 on / off
     public int brightness = 10;
-    void lightOn(bool _isOn)
+    void LightOn(bool _isOn)
     {
         if (_isOn)
         {
@@ -76,7 +76,7 @@ public class Flashlight : MonoBehaviour
 
     public float chargeAmount;
     //베터리 충전 함수
-    public void chargeEnergy()
+    public void ChargeEnergy()
     {
         energy += chargeAmount;
         useTime -= chargeAmount;
