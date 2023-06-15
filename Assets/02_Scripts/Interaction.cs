@@ -24,9 +24,10 @@ public class Interaction : MonoBehaviour
     public Camera cam;
     RaycastHit hit;
 
-
+    int layerMask = 1 << 9; //9번만 true
     private void Update()
     {
+        layerMask = ~layerMask;
         // 플레이어를 탐지하는 코드입니다.
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
         bool isPlayerInRange = colliders.Length > 0;
@@ -35,7 +36,7 @@ public class Interaction : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
         //Physics.Raycast(ray 원점 위치, 레이저 쏠 방향, 충돌 감지 hit)
         //Raycast에 오브젝트가 감지되고 마우스가 클릭됐다면
-        if (Physics.Raycast(transform.position, transform.forward, out hit) && Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask) && Input.GetMouseButtonDown(0))
         {
             //감지할 오브젝트와 관련된 함수
             leverPuzzle.PullLever(hit);
@@ -52,7 +53,7 @@ public class Interaction : MonoBehaviour
         //플레이어가 범위에 계속 머무를 때
         else if (isPlayerInRange && itemInRange)
         {
-            Debug.Log("플레이어가 범위에서 머무르는 중");
+            //Debug.Log("플레이어가 범위에서 머무르는 중");
             //플레이어가 E키를 누른다면
             for (int i = 0; i < colliders.Length; i++)
                 if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Baterry")
