@@ -393,6 +393,7 @@ MonoBehaviour:
   SpawnTimer: 10
   PlayerInTime: 0
   TriggerTime: 2
+  GhostDamage: 10
   triggerRadius: 2.41
   targetLayer:
     serializedVersion: 2

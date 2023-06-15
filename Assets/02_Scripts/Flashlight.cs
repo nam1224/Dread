@@ -55,8 +55,8 @@ public class Flashlight : MonoBehaviour
         imageRectTransform.sizeDelta = sizeDelta;
 
         if (energy <= 0)  //if player enegry <= 0 = player die
-        { 
-            
+        {
+            Debug.Log("Player Die");//귀신 4? 우빈귀신이 플레이어를 사망시킴(화장실귀신처럼)   
         }
     }
 
@@ -90,8 +90,11 @@ public class Flashlight : MonoBehaviour
         Debug.Log(energy + useTime);
     }
 
+
+    //손전등의 전력이 유령으로 인해 감소하는 함수 @공명
     public void EnergyDown(int G_damage)
     {
-        energy -= G_damage;
+        energy = energy-G_damage;
+        Debug.Log(energy);
     }
 }

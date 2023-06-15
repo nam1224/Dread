@@ -67,6 +67,7 @@ public class Ghost_num2 : Ghost
             if (PlayerInTime >= TriggerTime)
             {
                 Ghostact1();
+
                 PlayerInTime = 0;
 
                 // 플레이어가 들어올경우 전력을 깎는 행동을 취함.
@@ -99,8 +100,7 @@ public class Ghost_num2 : Ghost
     override public void Ghostact1()
     {
         // 해당 귀신이 플레이어의 전력을 깎는 함수를 호출함.
-        Debug.Log("Ghost Attack!");
-
+        Damaged();
     }
     override public void GhostSound1()
     {
