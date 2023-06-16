@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 {
     // 게임 신 넘기기, 게임 실행,게임 세팅 설정을 담당하는 스크립트 자세한 내용은 우준혁 내용 넣기바람
 
-    public Slider soundSlider;
-    public Slider mouseSlider;
-    public GameObject optionPanel;
-    public float maxTime;
-    public Text timeText;
-    public Sound sound;
+    public Slider soundSlider;  //사운드 조절
+    public Slider mouseSlider;  //감도 조절
+    public GameObject optionPanel;  
+    public float maxTime;   //게임플레이 시간
+    public Text timeText;   //0시부터 6시까지
+    public Sound sound;     //사운드 가져오기
 
 
     private bool m_cursorIsLocked = false;
@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
-        mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");
+        mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
 
-        if (SceneManager.GetActiveScene().name == "MainScene")
+        if (SceneManager.GetActiveScene().name == "MainScene")  //처음 시작할 때 옵션패널 끄기
         {
             optionPanel.SetActive(false);
         }
@@ -103,20 +103,20 @@ public class GameManager : MonoBehaviour
         }
         if (optionPanel)
         {
-            PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);
+            PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);    //감도 가져와서 슬라이더에 표시
         }
     }
-    public void StartButton()
+    public void StartButton()   //시작버튼(누르면 병원씬으로 이동)
     {
         SceneManager.LoadScene("HospitalScene");
         m_cursorIsLocked = true;
     }
-    public void OptionButton()
+    public void OptionButton()  //옵션패널 활성화
     {
         optionPanel.SetActive(true);
         m_cursorIsLocked = false;
     }
-    public void Cancel()
+    public void Cancel()    //옵션패널 끄기
     {
         optionPanel.SetActive(false);
         if (SceneManager.GetActiveScene().name != "MainScene")
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         }
       
     }
-    public void ExitButton()
+    public void ExitButton()    //게임끄기
     {
         Application.Quit();
     }
