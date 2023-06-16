@@ -24,7 +24,7 @@ public class Interaction : MonoBehaviour
     public Camera cam;
     RaycastHit hit;
 
-    int layerMask = 1 << 9; //9번만 true
+    int layerMask = 1 << 8; //8번만 true
     private void Update()
     {
         layerMask = ~layerMask;
@@ -33,7 +33,7 @@ public class Interaction : MonoBehaviour
         bool isPlayerInRange = colliders.Length > 0;
 
         Ray ray = cam.ScreenPointToRay(screenCenter);
-        Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * triggerRadius, Color.red);
         //Physics.Raycast(ray 원점 위치, 레이저 쏠 방향, 충돌 감지 hit)
         //Raycast에 오브젝트가 감지되고 마우스가 클릭됐다면
         if (Physics.Raycast(transform.position, transform.forward, out hit, layerMask) && Input.GetMouseButtonDown(0))
