@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
                 sound.PlaySound();
             }
         }
-
     }
 
     void Update()
@@ -103,9 +102,10 @@ public class GameManager : MonoBehaviour
         }
         if (optionPanel)
         {
-            PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);    //감도 가져와서 슬라이더에 표시
+            PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value); //감도 가져와서 슬라이더에 표시
         }
     }
+
     public void StartButton()   //시작버튼(누르면 병원씬으로 이동)
     {
         SceneManager.LoadScene("HospitalScene");

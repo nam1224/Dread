@@ -18,8 +18,10 @@ public class Interaction : MonoBehaviour
     //Flashlight중 chargeEnergy를 사용하기 위함
     public Flashlight flashlight;
     public TextManager textmanager;
+    //LeverPuzzle를 작동하기 위함
     public LeverPuzzle leverPuzzle;
-
+    //
+    public GameObject filmLight;
     //Raycast와 같이 사용할 친구들~
     public Camera cam;
     RaycastHit hit;
@@ -27,11 +29,13 @@ public class Interaction : MonoBehaviour
     int layerMask = 1 << 8; //8번만 true
     private void Update()
     {
-        layerMask = ~layerMask;
-        // 플레이어를 탐지하는 코드입니다.
-        Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
-        bool isPlayerInRange = colliders.Length > 0;
+        DetectObject();
+        DetectObjectRaycase();
+    }
 
+    private void DetectObjectRaycase()
+    {
+        layerMask = ~layerMask;
         Ray ray = cam.ScreenPointToRay(screenCenter);
         Debug.DrawRay(transform.position, transform.forward * triggerRadius, Color.red);
         //Physics.Raycast(ray 원점 위치, 레이저 쏠 방향, 충돌 감지 hit)
@@ -42,6 +46,13 @@ public class Interaction : MonoBehaviour
             leverPuzzle.PullLever(hit);
             Debug.Log(hit.collider.name);
         }
+    }
+
+    private void DetectObject()
+    {
+        // 플레이어를 탐지하는 코드입니다.
+        Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
+        bool isPlayerInRange = colliders.Length > 0;
 
         // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
         if (isPlayerInRange && !itemInRange)
@@ -55,19 +66,29 @@ public class Interaction : MonoBehaviour
         {
             //Debug.Log("플레이어가 범위에서 머무르는 중");
             //플레이어가 E키를 누른다면
-            for (int i = 0; i < colliders.Length; i++)
-                if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Baterry")
+            foreach (Collider item in colliders)
+            {
+                if (Input.GetKeyDown(KeyCode.E) && item.tag == "Baterry")
                 {
                     //에너지를 충전함
                     flashlight.GetComponent<Flashlight>().ChargeEnergy();
                     Debug.Log("에너지 충전");
                 }
-                else if (Input.GetKeyDown(KeyCode.E) && colliders[i].tag == "Key")
+
+                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "Key")
                 {
-                    colliders[i].gameObject.SetActive(false);
-                    textmanager.Text("GetKey", colliders[i].gameObject.ToString());
+                    item.gameObject.SetActive(false);
+                    textmanager.Text("GetKey", item.gameObject.ToString());
                     Debug.Log("열쇠를 먹어버림");
                 }
+
+                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "FilmProjector")
+                {
+                    Debug.Log("FilmProjector works");
+                    filmLight.SetActive(true);
+                }
+            }
+                
         }
 
         // 플레이어가 범위를 벗어났을 때 플래그 업데이트
@@ -75,6 +96,7 @@ public class Interaction : MonoBehaviour
         {
             itemInRange = false;
             //Debug.Log("플레이어가 범위를 벗어남");
+            filmLight.SetActive(false);
         }
     }
 

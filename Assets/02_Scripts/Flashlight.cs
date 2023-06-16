@@ -113,7 +113,7 @@ public class Flashlight : MonoBehaviour
         useTime -= chargeAmount;
         if (energy > ENERGY_MAX) energy = ENERGY_MAX;
         if (useTime < 0) useTime = 0;
-        Debug.Log(energy + useTime);
+        //Debug.Log(energy + useTime);
     }
 
 

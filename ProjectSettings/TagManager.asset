@@ -7,6 +7,7 @@ TagManager:
   - Bettery
   - Key
   - Baterry
+  - FilmProjector
   layers:
   - Default
   - TransparentFX
