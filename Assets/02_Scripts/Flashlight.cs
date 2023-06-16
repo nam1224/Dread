@@ -9,7 +9,8 @@ public class Flashlight : MonoBehaviour
 {
     public Light light;
     public float energy; //현재 베터리의 양
-    private const float ENERGY_MAX = 300; //베터리의 최대양
+    private const float ENERGY_MAX = 420; //베터리의 최대양
+    private int newWidth;
 
     private float useTime; //사용한 시간
 
@@ -43,7 +44,32 @@ public class Flashlight : MonoBehaviour
             LightOn(isOn);
         }
 
-        float newWidth = energy/3; // 변경할 너비 값
+        if (energy>350)
+        {
+            newWidth = 100;
+        }
+        else if (energy > 280)
+        {
+            newWidth = 80;
+        }
+        else if (energy>210)
+        {
+            newWidth = 60;
+        }
+        else if (energy > 140)
+        {
+            newWidth = 40;
+        }
+        else if (energy > 70)
+        {
+            newWidth = 20;
+        }
+        else
+        {
+            newWidth = 0;
+        }
+
+        // 변경할 너비 값
 
         // 이미지의 현재 RectTransform 값 복사
         Vector2 sizeDelta = imageRectTransform.sizeDelta;
