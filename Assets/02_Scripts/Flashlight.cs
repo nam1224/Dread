@@ -119,7 +119,8 @@ public class Flashlight : MonoBehaviour
     //손전등의 전력이 유령으로 인해 감소하는 함수 @공명
     public void EnergyDown(int G_damage)
     {
-        energy = energy-G_damage;
+        //energy = energy-G_damage;
+        useTime += G_damage;
         Debug.Log(energy);
     }
 }

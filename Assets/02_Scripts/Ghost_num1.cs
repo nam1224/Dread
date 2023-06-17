@@ -20,6 +20,8 @@ public class Ghost_num1 : Ghost
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
     public AudioSource GhostAudio1;
+
+    public AudioClip GhostScrem;
     override public void GhostAct()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
@@ -74,7 +76,7 @@ public class Ghost_num1 : Ghost
     {
 
         Debug.Log("GhostKillYou");
-        GhostAudio1.Play();
+        GhostAudio1.PlayOneShot(GhostScrem,1.0f);
         GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()
