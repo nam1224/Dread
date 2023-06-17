@@ -19,7 +19,7 @@ public class Ghost_num1 : Ghost
     public GameObject GhostFace;
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
-
+    public AudioSource GhostAudio1;
     override public void GhostAct()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
@@ -33,30 +33,40 @@ public class Ghost_num1 : Ghost
             {
                 Ghostact1();
             }
-
-        }
-        // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
-        if (isPlayerInRange && !playerInRange)
-        {
-            playerInRange = true;
-            // 이벤트 발생 코드 작성
-
-            GhostSound1();
-            // 사운드매니저에 접근하여 사운드를 재생해야합니다.
-        }
-        // 플레이어가 범위를 벗어났을 때 플래그 업데이트
-        else if (!isPlayerInRange && playerInRange)
-        {
-            playerInRange = false;
-            // 플레이어가 범위를 벗어난 경우에 대한 처리 코드 작성
-            if (PlayerInTime < TriggerTime)
+            // else if (!isPlayerInRange && playerInRange)
+            else if (!isPlayerInRange && playerInRange)
             {
-                Ghostact0();
-                //귀신이 플레이어를 죽이는 함수를 호출합니다
+                GhostAudio.Stop();
+                // 플레이어가 범위를 벗어난 경우에 대한 처리 코드 작성
+                if (PlayerInTime <= TriggerTime)
+                {
+                    Ghostact0();
+                    //귀신이 플레이어를 죽이는 함수를 호출합니다
 
+                }
+                //playerInRange = false;
             }
-
         }
+        if (Spawn == true)
+        {
+            // 플레이어가 범위에 처음 들어왔을 때 이벤트 발생 
+            if (isPlayerInRange && !playerInRange)
+            {
+                playerInRange = true;
+                // 이벤트 발생 코드 작성
+
+                GhostSound1();
+                // 사운드매니저에 접근하여 사운드를 재생해야합니다.
+            }
+            // 플레이어가 범위를 벗어났을 때 플래그 업데이트
+        }
+        else if(Spawn != true)
+        {
+            GhostAudio.Stop();
+            playerInRange = false;
+        }
+
+        
     }
 
 
@@ -64,18 +74,21 @@ public class Ghost_num1 : Ghost
     {
 
         Debug.Log("GhostKillYou");
-
+        GhostAudio1.Play();
         GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()
     {
+        playerInRange = false;
         Debug.Log("GhostUnSpawn");
         Spawn = false;
         PlayerInTime = 0f; 
-        TriggerTime = 4f;
+        TriggerTime = 6f;
     }
     override public void GhostSound1()
     {
+
+        GhostAudio.Play();
         //고스트 사운드 출력방식
         /*
         고스트 개별로 배열을 받음 (사운드 리소스)
