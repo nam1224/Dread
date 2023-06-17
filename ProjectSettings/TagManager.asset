@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Baterry
   - FilmProjector
+  - Safe
   layers:
   - Default
   - TransparentFX

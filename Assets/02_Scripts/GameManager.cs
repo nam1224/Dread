@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "MainScene")
         {
-            m_cursorIsLocked = true;
+            OnMouseLock();
         }
 
         while (true)
@@ -109,22 +109,36 @@ public class GameManager : MonoBehaviour
     public void StartButton()   //시작버튼(누르면 병원씬으로 이동)
     {
         SceneManager.LoadScene("HospitalScene");
-        m_cursorIsLocked = true;
+        OnMouseLock();
     }
     public void OptionButton()  //옵션패널 활성화
     {
         optionPanel.SetActive(true);
-        m_cursorIsLocked = false;
+        OffMouseLock();
     }
-    public void Cancel()    //옵션패널 끄기
+
+    public void PanelOff()    //옵션패널 끄기
     {
         optionPanel.SetActive(false);
         if (SceneManager.GetActiveScene().name != "MainScene")
         {
-            m_cursorIsLocked = true;
+            OnMouseLock();
         }
-      
     }
+
+    //@민우
+    //마우스 잠금 해제
+    public void OffMouseLock()
+    {
+        m_cursorIsLocked = false;
+    }
+
+    //마우스 잠금
+    public void OnMouseLock()
+    {
+        m_cursorIsLocked = true;
+    }
+
     public void ExitButton()    //게임끄기
     {
         Application.Quit();

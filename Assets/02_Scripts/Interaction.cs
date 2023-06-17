@@ -18,8 +18,10 @@ public class Interaction : MonoBehaviour
     //Flashlight중 chargeEnergy를 사용하기 위함
     public Flashlight flashlight;
     public TextManager textmanager;
-    //LeverPuzzle를 작동하기 위함
+
+    //퍼즐을 작동하기 위함
     public LeverPuzzle leverPuzzle;
+    public SafePuzzle safePuzzle;
     //
     public GameObject filmLight;
     //Raycast와 같이 사용할 친구들~
@@ -86,6 +88,12 @@ public class Interaction : MonoBehaviour
                 {
                     Debug.Log("FilmProjector works");
                     filmLight.SetActive(true);
+                }
+
+                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "Safe")
+                {
+                    Debug.Log("Safe");
+                    safePuzzle.GetComponent<SafePuzzle>().OnSafePuzzle();
                 }
             }
                 

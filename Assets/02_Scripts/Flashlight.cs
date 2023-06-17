@@ -24,7 +24,6 @@ public class Flashlight : MonoBehaviour
     private void Start()
     {
         imageRectTransform = image.GetComponent<RectTransform>();
-
     }
 
 
