@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4005010330349396568}
   - component: {fileID: 1835381348244649425}
   - component: {fileID: 4001773584483291731}
-  - component: {fileID: 9187124516530657201}
+  - component: {fileID: 1621296494}
   m_Layer: 6
   m_Name: PlayerFPS
   m_TagString: Player
@@ -212,8 +212,9 @@ MonoBehaviour:
   horizontalInputName: Horizontal
   verticalInputName: Vertical
   movementSpeed: 2.5
-  WalkSound: {fileID: 9187124516530657201}
   Moveing: 0
+  PlayerAudio: {fileID: 1621296494}
+  WalkSound: {fileID: 8300000, guid: 7f5eef17166fa254c80136d21fa6f5d4, type: 3}
 --- !u!114 &4001773584483291731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,9 +234,10 @@ MonoBehaviour:
   flashlight: {fileID: 3234161781161049487}
   textmanager: {fileID: 0}
   leverPuzzle: {fileID: 0}
+  safePuzzle: {fileID: 0}
   filmLight: {fileID: 0}
   cam: {fileID: 4005010330982861410}
---- !u!82 &9187124516530657201
+--- !u!82 &1621296494
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +247,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a42cc3b3c56feae48ad04e020863ee14, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7f5eef17166fa254c80136d21fa6f5d4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

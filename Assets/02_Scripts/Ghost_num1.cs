@@ -76,7 +76,8 @@ public class Ghost_num1 : Ghost
     {
 
         Debug.Log("GhostKillYou");
-        GhostAudio1.PlayOneShot(GhostScrem,1.0f);
+        GhostAudio1.PlayOneShot(GhostScrem, 1.0f);
+        //GhostAudio1.Play();
         GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()

@@ -60,6 +60,7 @@ MonoBehaviour:
   Ghost_obj: {fileID: 0}
   GhostAudio: {fileID: 8050630311220934842}
   GhostAudio1: {fileID: 1612032378}
+  GhostScrem: {fileID: 8300000, guid: c08be096971c2f04c8826a12a5173df5, type: 3}
 --- !u!82 &8050630311220934842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -166,7 +167,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5af62798fcc09dd46a0ac2290e521d69, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c08be096971c2f04c8826a12a5173df5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

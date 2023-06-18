@@ -9,10 +9,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private string verticalInputName = "Vertical";
 
     [SerializeField] private float movementSpeed = 2f;
-
+    public bool Moveing;
     private CharacterController charController;
-    public AudioSource WalkSound;
-    public bool Moveing = false;
+    public AudioSource PlayerAudio;
+    public AudioClip WalkSound;
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
@@ -20,16 +20,15 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        
         PlayerMovement();
+        PlayerWalkSound();
     }
 
     private void PlayerMovement()
     {
-
         float vertInput = Input.GetAxis(verticalInputName) * movementSpeed;
         float horizInput = Input.GetAxis(horizontalInputName) * movementSpeed;
- 
+
         Vector3 forwardMovement = transform.forward * vertInput;
         Vector3 rightMovement = transform.right * horizInput;
 
@@ -38,7 +37,8 @@ public class PlayerMove : MonoBehaviour
 
         // SimpleMove 메소드는 deltaTime을 자동으로 적용합니다.
         charController.SimpleMove(movement);
-        if(vertInput > 0 || horizInput > 0 || vertInput < 0 || horizInput <0)
+
+        if (vertInput > 0 || horizInput > 0 || vertInput < 0 || horizInput < 0)
         {
             Moveing = true;
         }
@@ -46,71 +46,13 @@ public class PlayerMove : MonoBehaviour
         {
             Moveing = false;
         }
-        Get_KeyCode();
-
-    }
-
-    public void Get_KeyCode()
-    {
         
-       /*
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            print("W");
-            Moveing = true;
-        }
-        else
-        {
-            print("Moveing = false");
-
-            Moveing = false;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            print("S");
-            Moveing = true;
-        }
-        else
-        {
-            print("Moveing = false");
-
-            Moveing = false;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            print("D");
-            Moveing = true;
-        }
-        else
-        {
-            print("Moveing = false");
-
-            Moveing = false;
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            print("W");
-            Moveing = true;
-        }
-        else
-        {
-            print("Moveing = false");
-
-            Moveing = false;
-        }
-       */
-
+    }
+    public void PlayerWalkSound()
+    {
         if (Moveing == true)
         {
-            Debug.Log("walkSoundPlay"); // 나중에 지울것
-            WalkSound.Play();
-        }
-        else
-        {
-            Debug.Log("walkSoundStop"); // 나중에 지울것
-            WalkSound.Stop();
+            PlayerAudio.PlayOneShot(WalkSound, 1.0f);
         }
     }
-
-
 }

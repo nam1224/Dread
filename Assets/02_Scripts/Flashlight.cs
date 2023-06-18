@@ -120,7 +120,7 @@ public class Flashlight : MonoBehaviour
     public void EnergyDown(int G_damage)
     {
         //energy = energy-G_damage;
-        useTime += G_damage;
+        energy = energy - G_damage;
         Debug.Log(energy);
     }
 }
