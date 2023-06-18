@@ -8,11 +8,12 @@ public class SafePuzzle : MonoBehaviour
     public InputField inputField;
     public string password; //설정된 비밀번호
 
-    private GameManager gm; //마우스 커서 풀기 위해
+    public GameManager gm; //마우스 커서 풀기 위해
 
+    public AudioSource audioSource;
+    public AudioClip lockOffAudio; //잠금 해제 소리
     private void Start()
     {
-        gm = GetComponent<GameManager>();
         OffSafePuzzle();
     }
 
@@ -24,7 +25,7 @@ public class SafePuzzle : MonoBehaviour
     public void OffSafePuzzle()
     {
         inputField.gameObject.SetActive(false);
-        //gm.OnMouseLock();
+        gm.OnMouseLock();
     }
 
     public void ConfirmPassword()
@@ -32,6 +33,7 @@ public class SafePuzzle : MonoBehaviour
         if(password == inputField.text)
         {
             Debug.Log("잠금 해제");
+            audioSource.PlayOneShot(lockOffAudio, 1.0f);
         }
         else
         {
