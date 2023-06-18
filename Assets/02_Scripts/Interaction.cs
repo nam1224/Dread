@@ -77,7 +77,6 @@ public class Interaction : MonoBehaviour
             {
                 switch (item.tag)
                 {
-<<<<<<< HEAD
                     case "Baterry":
                         flashlight.ChargeEnergy();
                         break;
@@ -93,7 +92,6 @@ public class Interaction : MonoBehaviour
                         break;
                     default:
                         break;
-=======
                     //에너지를 충전함
                     flashlight.GetComponent<Flashlight>().ChargeEnergy();
                     Debug.Log("에너지 충전");
@@ -118,7 +116,6 @@ public class Interaction : MonoBehaviour
                 {
                     Debug.Log("Safe");
                     safePuzzle.GetComponent<SafePuzzle>().OnSafePuzzle();
->>>>>>> 9469391d6609bf0b71cf65e6d1c2936d186d95d6
                 }
             }
         }
