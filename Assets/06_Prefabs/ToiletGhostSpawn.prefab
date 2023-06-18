@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spawn: 0
-  SpawnTimer: 10
+  SpawnTimer: 60
   PlayerInTime: 0
   TriggerTime: 6
   GhostDamage: 4444
@@ -73,7 +73,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a42cc3b3c56feae48ad04e020863ee14, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.474
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -169,7 +169,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c08be096971c2f04c8826a12a5173df5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.541
   m_Pitch: 1
   Loop: 0
   Mute: 0

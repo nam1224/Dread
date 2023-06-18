@@ -80,7 +80,9 @@ public class Interaction : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.E) && item.tag == "Key")
                 {
                     item.gameObject.SetActive(false);
-                    textmanager.Text("GetKey", item.gameObject.ToString());
+                   
+                     textmanager.Text("GetKey", item.gameObject.ToString());
+                    
                     Debug.Log("¿­¼è¸¦ ¸Ô¾î¹ö¸²");
                 }
 

@@ -11,13 +11,13 @@ public class Ghost : MonoBehaviour
     public int GhostDamage = 1; // 귀신의 데미지 전력을 깎는 함수를 호출할때 매개변수로 사용됩니다
     public float triggerRadius = 5f; // 이벤트를 발생시킬 범위의 반지름 입니다
     public LayerMask targetLayer; // 플레이어를 확인할 레이어 입니다 플레이어의 레이어는 Player_Layer 입니다
-
+    
     public  bool playerInRange = false; // 플레이어가 범위 안에 있는지 여부
     //public Flashlight flashlight;
 
 
     // public Flashlight flashlight;// 플레이어 손전등
-
+ 
     virtual public void Update()
     {
         if (Spawn == false)
@@ -25,7 +25,7 @@ public class Ghost : MonoBehaviour
             SpawnTimer -= Time.deltaTime;
             if (SpawnTimer <= 0f)
             {
-                Debug.Log("Ghost_num1 respawn");
+                //Debug.Log("respawn");
                 SpawnTimer = 10f;
                 Spawn = true;
             }
