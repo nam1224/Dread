@@ -22,6 +22,23 @@ public class Ghost_num1 : Ghost
     public AudioSource GhostAudio1;
 
     public AudioClip GhostScrem;
+    override public void Update()
+    {
+        if (Spawn == false)
+        {
+            SpawnTimer -= Time.deltaTime;
+            if (SpawnTimer <= 0f)
+            {
+                //Debug.Log("respawn");
+                SpawnTimer = 60f;
+                Spawn = true;
+            }
+        }
+        else if (Spawn == true)
+        {
+            GhostAct();
+        }
+    }
     override public void GhostAct()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, triggerRadius, targetLayer);
@@ -76,7 +93,7 @@ public class Ghost_num1 : Ghost
     {
 
         Debug.Log("GhostKillYou");
-        GhostAudio1.PlayOneShot(GhostScrem, 1.0f);
+        GhostAudio1.PlayOneShot(GhostScrem);
         //GhostAudio1.Play();
         GhostFace.gameObject.SetActive(true);
     }
@@ -87,6 +104,7 @@ public class Ghost_num1 : Ghost
         Spawn = false;
         PlayerInTime = 0f; 
         TriggerTime = 6f;
+        
     }
     override public void GhostSound1()
     {

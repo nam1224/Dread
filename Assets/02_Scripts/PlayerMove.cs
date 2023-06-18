@@ -52,7 +52,11 @@ public class PlayerMove : MonoBehaviour
     {
         if (Moveing == true)
         {
-            PlayerAudio.PlayOneShot(WalkSound, 1.0f);
+            PlayerAudio.enabled = true;
+        }
+        else if(Moveing != true)
+        {
+            PlayerAudio.enabled = false;
         }
     }
 }

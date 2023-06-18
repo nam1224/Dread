@@ -19,7 +19,7 @@ public class Ghost_num2 : Ghost
 
     //2번 귀신 : 길목을 막는 귀신 일정시간동안 스폰되어있고 범위안에 들어오는 캐릭터의 전력을 감소시킴.
 
-    public float LifeTimer = 30f; // 해당귀신이 스폰 된후 생존해있는 시간 끝나면 다시 스폰 타이머를 기다린다.
+    public float LifeTimer = 60f; // 해당귀신이 스폰 된후 생존해있는 시간 끝나면 다시 스폰 타이머를 기다린다.
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
     void start()
@@ -36,7 +36,7 @@ public class Ghost_num2 : Ghost
             if (SpawnTimer <= 0f)
             {
                 Debug.Log("Ghost_num2 respawn");
-                SpawnTimer = 10f;
+                SpawnTimer = 80f;
                 Spawn = true;
             }
         }
@@ -48,7 +48,7 @@ public class Ghost_num2 : Ghost
             if(LifeTimer <= 0f)
             {
                 Debug.Log("Ghost_num2 respawn");
-                LifeTimer = 30f;
+                LifeTimer = 60f;
                 Spawn = false;
             }
             GhostAct();

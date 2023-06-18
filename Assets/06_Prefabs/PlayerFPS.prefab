@@ -214,7 +214,7 @@ MonoBehaviour:
   movementSpeed: 2.5
   Moveing: 0
   PlayerAudio: {fileID: 1621296494}
-  WalkSound: {fileID: 8300000, guid: 7f5eef17166fa254c80136d21fa6f5d4, type: 3}
+  WalkSound: {fileID: 8300000, guid: a126c92bf6c794346b48c071eb31b0fa, type: 3}
 --- !u!114 &4001773584483291731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,14 +244,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4005010330349396566}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7f5eef17166fa254c80136d21fa6f5d4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a126c92bf6c794346b48c071eb31b0fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.149
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
