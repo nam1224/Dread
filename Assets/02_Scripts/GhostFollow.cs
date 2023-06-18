@@ -11,40 +11,7 @@ public class GhostFollow : Ghost
     public Transform PlayerTarget;
 
     public float LifeTimer = 40f;
-    public GameObject Ghost_obj;
-
-    override public void Update()
-    {
-      
-        if (Spawn == false)
-        {
-            Ghost_obj.gameObject.SetActive(false);
-            SpawnTimer -= Time.deltaTime;
-            if (SpawnTimer <= 0f)
-            {
-                Debug.Log("Ghost_num3 Spawn");
-                SpawnTimer = 170f;
-                Spawn = true;
-            }
-        }
-        else if (Spawn == true)
-        {
-            FollowPlayer();
-            Ghost_obj.gameObject.SetActive(true);
-
-            LifeTimer -= Time.deltaTime;
-
-            if (LifeTimer <= 0f)
-            {
-                Debug.Log("Ghost_num3 Spawn False");
-                LifeTimer = 40f;
-                Spawn = false;
-            }
-            GhostAct();
-        }
-    }
-
-
+    public GameObject Ghost_Object;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +19,19 @@ public class GhostFollow : Ghost
         PlayerTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    override public void Update()
+    {
+        FollowPlayer();
+        LifeTimer -= Time.deltaTime;
+
+        if (LifeTimer <= 0f)
+        {
+         Debug.Log("Ghost_num3 Spawn False");
+         Destroy(Ghost_Object,0.5f);
+        }
+
+    
+    }
 
 
     override public void Ghostact0()

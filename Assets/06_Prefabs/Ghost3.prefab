@@ -147,7 +147,7 @@ MonoBehaviour:
   playerInRange: 0
   PlayerTarget: {fileID: 0}
   LifeTimer: 40
-  Ghost_obj: {fileID: 6872088892669918035}
+  Ghost_Object: {fileID: 4547822005626246289}
 --- !u!1 &6872088892669918035
 GameObject:
   m_ObjectHideFlags: 0
