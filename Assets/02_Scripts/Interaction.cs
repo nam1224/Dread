@@ -82,7 +82,7 @@ public class Interaction : MonoBehaviour
                         break;
                     case "Key":
                         item.gameObject.SetActive(false);
-                        textmanager.Text("GetKey", item.gameObject.ToString());
+                        textmanager.Text("GetKey", item.name.ToString());
                         break;
                     case "FilmProjector":
                         filmLight.SetActive(true);

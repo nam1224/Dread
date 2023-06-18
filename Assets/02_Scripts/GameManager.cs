@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +14,19 @@ public class GameManager : MonoBehaviour
     public GameObject optionPanel;  
     public float maxTime;   //게임플레이 시간
     public Text timeText;   //0시부터 6시까지
-    public Sound sound;     //사운드 가져오기
+    public AudioMixer audioMixer;
+    public AudioSource audioSource;
+    public AudioClip soundClip;
 
 
     private bool m_cursorIsLocked = false;
-    public float timer = 0f;
+    public float timer = 1f;
     private float interval = 1f;
 
+    public void Volume()
+    {
+        audioMixer.SetFloat("Sound", Mathf.Log10(soundSlider.value) * 20);
+    }
     private void LockCursor()
     {
 
@@ -37,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        soundSlider.value = PlayerPrefs.GetFloat("Sound");
         mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
 
         if (SceneManager.GetActiveScene().name == "MainScene")  //처음 시작할 때 옵션패널 끄기
@@ -53,8 +61,6 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(interval);  // 1초를 기다리는 WaitForSeconds 객체 생성
 
-            timer += 1f;
-
             if (timer == 0) //0시
             {
                 timeText.text = "0:00";
@@ -63,38 +69,40 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("1시");
                 timeText.text = "1:00";
-                sound.PlaySound();
+                audioSource.PlayOneShot(soundClip);
             }
-            else if (timer == maxTime / 5)  //2시
+            else if (timer == maxTime / 6*2)  //2시
             {
                 timeText.text = "2:00";
-                sound.PlaySound();
+                audioSource.PlayOneShot(soundClip);
             }
-            else if (timer == maxTime / 4)  //3시
+            else if (timer == maxTime / 6*3)  //3시
             {
                 timeText.text = "3:00";
-                sound.PlaySound();
+                audioSource.PlayOneShot(soundClip);
             }
-            else if (timer == maxTime / 3)  //4시
+            else if (timer == maxTime / 6*4)  //4시
             {
                 timeText.text = "4:00";
-                sound.PlaySound();
+                audioSource.PlayOneShot(soundClip);
             }
-            else if (timer == maxTime / 2)  //5시
+            else if (timer == maxTime / 6*5)  //5시
             {
                 timeText.text = "5:00";
-                sound.PlaySound();
+                audioSource.PlayOneShot(soundClip);
             }
             else if (timer == maxTime)  //6시(클리어)
             {
                 timeText.text = "6:00";
-                sound.PlaySound();
             }
+
+            timer += 1f;
         }
     }
 
     void Update()
     {
+        Volume();
         LockCursor();
         if (Input.GetKeyUp(KeyCode.Escape))
         {
@@ -103,6 +111,7 @@ public class GameManager : MonoBehaviour
         if (optionPanel)
         {
             PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value); //감도 가져와서 슬라이더에 표시
+            PlayerPrefs.SetFloat("Sound", soundSlider.value);
         }
     }
 

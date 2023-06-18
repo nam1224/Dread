@@ -50,6 +50,9 @@ public class PlayerMove : MonoBehaviour
     }
     public void PlayerWalkSound()
     {
+        float volume = PlayerPrefs.GetFloat("Volume");
+        AudioSource audioSource = PlayerAudio.GetComponent<AudioSource>();
+        audioSource.volume = volume;
         if (Moveing == true)
         {
             PlayerAudio.enabled = true;

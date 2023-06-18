@@ -11,9 +11,9 @@ public class TextManager : MonoBehaviour
     public Text talkText;
     void Start()
     {
-        talkPanel.SetActive(false);
+        talkPanel.SetActive(false);     //시작할 때 옵션패널 끄고 시작
     }
-    public void Text(string atribute,string keyName)
+    public void Text(string atribute,string keyName)    //어떤 녀석인지 atribute로 확인, keyName으로 어떤 열쇠를 먹었는지 추가
     {
         if (talkPanel.activeSelf == false)
         {
@@ -21,7 +21,7 @@ public class TextManager : MonoBehaviour
             {
                 talkText.text = "문이 잠겨있다.";
                 talkPanel.SetActive(true);         
-                StartCoroutine(CallFunctionWithDelay());
+                StartCoroutine(CallFunctionWithDelay());    //1.5초후 사라지는 함수를 호출
             }
             else if(atribute == "GetKey")
             {
@@ -29,14 +29,26 @@ public class TextManager : MonoBehaviour
                 talkPanel.SetActive(true);
                 StartCoroutine(CallFunctionWithDelay());
             }
+            else if(atribute == "맞음")
+            {
+                talkText.text = "풀었다.";
+                talkPanel.SetActive(true);
+                StartCoroutine(CallFunctionWithDelay());
+            }
+            else if(atribute == "틀림")
+            {
+                talkText.text = "틀린 거 같다.";
+                talkPanel.SetActive(true);
+                StartCoroutine(CallFunctionWithDelay());
+            }
         }
     }
     IEnumerator CallFunctionWithDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);      //1.5초뒤 텍스트 삭제
         DeleteText();
     }
-    public void DeleteText()
+    public void DeleteText()    //텍스트 삭제
     {
         talkPanel.SetActive(false);
     }

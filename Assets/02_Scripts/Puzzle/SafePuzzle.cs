@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SafePuzzle : MonoBehaviour
 {
+    public TextManager textmanager;
+
     public InputField inputField;
     public string password; //설정된 비밀번호
 
@@ -32,12 +34,12 @@ public class SafePuzzle : MonoBehaviour
     {
         if(password == inputField.text)
         {
-            Debug.Log("잠금 해제");
             audioSource.PlayOneShot(lockOffAudio, 1.0f);
+            textmanager.Text("맞음", "");
         }
         else
         {
-            Debug.Log("다시");
+            textmanager.Text("틀림", "");
         }
         OffSafePuzzle();
     }
