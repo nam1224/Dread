@@ -92,30 +92,6 @@ public class Interaction : MonoBehaviour
                         break;
                     default:
                         break;
-                    //에너지를 충전함
-                    flashlight.GetComponent<Flashlight>().ChargeEnergy();
-                    Debug.Log("에너지 충전");
-                }
-
-                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "Key")
-                {
-                    item.gameObject.SetActive(false);
-                   
-                     textmanager.Text("GetKey", item.gameObject.ToString());
-                    
-                    Debug.Log("열쇠를 먹어버림");
-                }
-
-                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "FilmProjector")
-                {
-                    Debug.Log("FilmProjector works");
-                    filmLight.SetActive(true);
-                }
-
-                else if (Input.GetKeyDown(KeyCode.E) && item.tag == "Safe")
-                {
-                    Debug.Log("Safe");
-                    safePuzzle.GetComponent<SafePuzzle>().OnSafePuzzle();
                 }
             }
         }
