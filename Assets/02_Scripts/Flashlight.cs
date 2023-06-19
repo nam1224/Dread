@@ -9,6 +9,7 @@ public class Flashlight : MonoBehaviour
 {
     public Light light;
     public float energy; //현재 베터리의 양
+    public GameManager gameManager;
     private const float ENERGY_MAX = 420; //베터리의 최대양
     private int newWidth;
 
@@ -81,7 +82,7 @@ public class Flashlight : MonoBehaviour
 
         if (energy <= 0)  //if player enegry <= 0 = player die
         {
-            Debug.Log("Player Die");//귀신 4? 우빈귀신이 플레이어를 사망시킴(화장실귀신처럼)   
+            gameManager.Die();//귀신 4? 우빈귀신이 플레이어를 사망시킴(화장실귀신처럼)   
         }
     }
 
