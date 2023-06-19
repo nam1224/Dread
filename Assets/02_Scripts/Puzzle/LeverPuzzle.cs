@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LeverPuzzle : MonoBehaviour
 {
-    public Light[] lights = new Light[5]; //전구 불빛을 받아올 배열
-    [SerializeField] bool[] isOn = new bool[5];
+    public GameObject[] bulbs = new GameObject[5];
+    public GameObject[] onBulbs = new GameObject[5];
+    bool[] isOn = new bool[5];
 
     [SerializeField] List<Lever> levers = new List<Lever>();
     public void PullLever(RaycastHit _hit)
@@ -35,8 +37,8 @@ public class LeverPuzzle : MonoBehaviour
         int i = 0;
         foreach(bool isOnLight in isOn)
         {
-            if (isOnLight) lights[i].intensity = 1;
-            else lights[i].intensity = 0;
+            if (isOnLight) onBulbs[i].SetActive(true);
+            else onBulbs[i].SetActive(false);
             i++;
         }
     }
@@ -46,13 +48,29 @@ public class LeverPuzzle : MonoBehaviour
         Reset();
     }
 
+    private void Update()
+    {
+        ClearPuzzle(isOn);
+    }
+
     private void Reset()
     {
-        //lights 배열의 밝기를 모두 0으로, isOn 배열을 모두 false로 초기화
-        for (int i = 0; i < lights.Length; i++)
+        //모두 초기화
+        for (int i = 0; i < onBulbs.Length; i++)
         {
-            lights[i].intensity = 0;
+            onBulbs[i].SetActive(false);
             isOn[i] = false;
         }
+    }
+
+    private void ClearPuzzle(bool[] _isOn)
+    {
+        //모두 불이 켜졌는가?
+        foreach (bool isTrue in _isOn)
+        {
+            if (true != isTrue) return;
+        }
+
+
     }
 }
