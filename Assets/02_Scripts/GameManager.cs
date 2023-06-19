@@ -46,12 +46,15 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    public void Awake()
+    {
+        soundSlider.value = PlayerPrefs.GetFloat("Sound");
+        mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
+    }
     private IEnumerator Start()
     {
         clearPanel.SetActive(false);
         diePanel.SetActive(false);
-        soundSlider.value = PlayerPrefs.GetFloat("Sound");
-        mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
 
         if (SceneManager.GetActiveScene().name == "MainScene")  //처음 시작할 때 옵션패널 끄기
         {
@@ -153,8 +156,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         textManager.Text("엔딩", "나는 더 이상 그것들과는 얽히고 싶지않아...");
         yield return new WaitForSeconds(4);
-        PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);
-        PlayerPrefs.SetFloat("Sound", soundSlider.value);
         SceneManager.LoadScene("MainScene");
     }
     public void PanelOff()    //옵션패널 끄기
