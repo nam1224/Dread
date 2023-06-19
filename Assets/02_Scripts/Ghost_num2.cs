@@ -22,7 +22,7 @@ public class Ghost_num2 : Ghost
     public float LifeTimer = 60f; // 해당귀신이 스폰 된후 생존해있는 시간 끝나면 다시 스폰 타이머를 기다린다.
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
-    void start()
+    void Start()
     {
         GhostAudio = GetComponent<AudioSource>();
 
@@ -99,18 +99,11 @@ public class Ghost_num2 : Ghost
     }
     override public void Ghostact1()
     {
-        // 해당 귀신이 플레이어의 전력을 깎는 함수를 호출함.
         Damaged();
     }
     override public void GhostSound1()
     {
         GhostAudio.Play();
-        //고스트 사운드 출력방식
-        /*
-        고스트 개별로 배열을 받음 (사운드 리소스)
-        고스트 사운드 1,2 함수에서 해당하는 고스트 사운드를 출력함 (등장,추격및 비명)
-        해당 귀신 에게서는 이 소리가 재생됨.
-        */
     }
 
     override public void GhostSound2()
