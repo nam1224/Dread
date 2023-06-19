@@ -17,6 +17,7 @@ public class SafePuzzle : MonoBehaviour
     private void Start()
     {
         OffSafePuzzle();
+        battery.SetActive(false);
     }
 
     public void OnSafePuzzle()
@@ -35,12 +36,23 @@ public class SafePuzzle : MonoBehaviour
         if(password == inputField.text)
         {
             audioSource.PlayOneShot(lockOffAudio, 1.0f);
-            textmanager.Text("맞음", "");
+            //textmanager.Text("맞음", "");
+            Debug.Log("맞음");
+            ClearSafePuzzle();
         }
         else
         {
-            textmanager.Text("틀림", "");
+            //textmanager.Text("틀림", "");
+            Debug.Log("틀림");
         }
+        inputField.text = "";
         OffSafePuzzle();
     }
+    public GameObject battery;
+    private void ClearSafePuzzle()
+    {
+        battery.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
 }

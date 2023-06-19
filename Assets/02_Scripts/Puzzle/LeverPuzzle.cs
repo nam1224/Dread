@@ -50,7 +50,7 @@ public class LeverPuzzle : MonoBehaviour
 
     private void Update()
     {
-        ClearPuzzle(isOn);
+        ClearLeverPuzzle(isOn);
     }
 
     private void Reset()
@@ -63,7 +63,7 @@ public class LeverPuzzle : MonoBehaviour
         }
     }
 
-    private void ClearPuzzle(bool[] _isOn)
+    private void ClearLeverPuzzle(bool[] _isOn)
     {
         //모두 불이 켜졌는가?
         foreach (bool isTrue in _isOn)
