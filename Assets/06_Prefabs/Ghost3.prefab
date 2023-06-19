@@ -140,7 +140,7 @@ MonoBehaviour:
   SpawnTimer: 10
   PlayerInTime: 0
   TriggerTime: 4
-  GhostDamage: 1
+  GhostDamage: 100
   triggerRadius: 2.5
   targetLayer:
     serializedVersion: 2
@@ -160,8 +160,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 2856b2dba35e1e24789bd00c60208afb, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 707b053f2fa54554db2c9b80fcc459ba, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
