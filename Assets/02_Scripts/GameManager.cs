@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public AudioMixer audioMixer;
     public AudioSource audioSource;
     public AudioClip soundClip;
+    public GameObject diePanel;
 
 
     private bool m_cursorIsLocked = false;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        diePanel.SetActive(false);
         soundSlider.value = PlayerPrefs.GetFloat("Sound");
         mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
 
@@ -94,6 +96,8 @@ public class GameManager : MonoBehaviour
             else if (timer == maxTime)  //6시(클리어)
             {
                 timeText.text = "6:00";
+                Clear();
+                break;
             }
 
             timer += 1f;
@@ -125,7 +129,19 @@ public class GameManager : MonoBehaviour
         optionPanel.SetActive(true);
         OffMouseLock();
     }
+    public void ReStartButton()   //시작버튼(누르면 병원씬으로 이동)
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+    public void Die()
+    {
+        diePanel.SetActive(true);
+        OffMouseLock();
+    }
+    public void Clear()
+    {
 
+    }
     public void PanelOff()    //옵션패널 끄기
     {
         optionPanel.SetActive(false);
