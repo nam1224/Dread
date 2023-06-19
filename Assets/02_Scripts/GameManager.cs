@@ -17,7 +17,10 @@ public class GameManager : MonoBehaviour
     public AudioMixer audioMixer;
     public AudioSource audioSource;
     public AudioClip soundClip;
+    public AudioClip breath;
     public GameObject diePanel;
+    public TextManager textManager;
+    public GameObject clearPanel;
 
 
     private bool m_cursorIsLocked = false;
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
+        clearPanel.SetActive(false);
         diePanel.SetActive(false);
         soundSlider.value = PlayerPrefs.GetFloat("Sound");
         mouseSlider.value = PlayerPrefs.GetFloat("MouseSensitivity");   //마우스 감도 가져오기
@@ -96,8 +100,7 @@ public class GameManager : MonoBehaviour
             else if (timer == maxTime)  //6시(클리어)
             {
                 timeText.text = "6:00";
-                Clear();
-                break;
+                StartCoroutine(Clear());
             }
 
             timer += 1f;
@@ -128,19 +131,31 @@ public class GameManager : MonoBehaviour
     {
         optionPanel.SetActive(true);
         OffMouseLock();
+        Time.timeScale = 0f;
     }
     public void ReStartButton()   //시작버튼(누르면 병원씬으로 이동)
     {
         SceneManager.LoadScene("MainScene");
     }
-    public void Die()
+    public void Die()   //죽었을 때
     {
         diePanel.SetActive(true);
         OffMouseLock();
     }
-    public void Clear()
+    public IEnumerator Clear() //엔딩
     {
-
+        clearPanel.SetActive(true);
+        audioSource.PlayOneShot(breath);
+        yield return new WaitForSeconds(6);
+        textManager.Text("엔딩", "나는 병원에서 도망쳐 나왔다.");
+        yield return new WaitForSeconds(2);
+        textManager.Text("엔딩", "그날 있었던 일들은 그냥 모르는 척 하기로 했다.");
+        yield return new WaitForSeconds(2);
+        textManager.Text("엔딩", "나는 더 이상 그것들과는 얽히고 싶지않아...");
+        yield return new WaitForSeconds(4);
+        PlayerPrefs.SetFloat("MouseSensitivity", mouseSlider.value);
+        PlayerPrefs.SetFloat("Sound", soundSlider.value);
+        SceneManager.LoadScene("MainScene");
     }
     public void PanelOff()    //옵션패널 끄기
     {
@@ -149,6 +164,7 @@ public class GameManager : MonoBehaviour
         {
             OnMouseLock();
         }
+        Time.timeScale = 1f;
     }
 
     //@민우
