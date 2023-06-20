@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject diePanel;
     public TextManager textManager;
     public GameObject clearPanel;
+    public GameObject helpPanel;
 
 
     private bool m_cursorIsLocked = false;
@@ -175,6 +176,14 @@ public class GameManager : MonoBehaviour
         m_cursorIsLocked = false;
     }
 
+    public void HelpPanelOn()
+    {
+        helpPanel.SetActive(true);
+    }
+    public void HelpPanelOff()
+    {
+        helpPanel.SetActive(false);
+    }
     //마우스 잠금
     public void OnMouseLock()
     {
