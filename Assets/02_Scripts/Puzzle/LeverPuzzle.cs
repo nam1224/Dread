@@ -42,10 +42,11 @@ public class LeverPuzzle : MonoBehaviour
             i++;
         }
     }
-
+    Flashlight flashlight;
     private void Start()
     {
         Reset();
+        flashlight = GameObject.Find("Flashlight").GetComponent<Flashlight>();
     }
 
     private void Update()
@@ -70,6 +71,6 @@ public class LeverPuzzle : MonoBehaviour
         {
             if (true != isTrue) return;
         }
-        
+        flashlight.ChargeEnergy();
     }
 }
