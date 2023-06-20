@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3234161781161049486}
-  - component: {fileID: 3234161781161049487}
   m_Layer: 6
   m_Name: scripts
   m_TagString: Untagged
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 7815522897721959907}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3234161781161049487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3234161781161049485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94ad1694ab36774eb8c53232f5f2e70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 3234161782217634009}
-  energy: 0
-  image: {fileID: 0}
-  brightness: 10
-  chargeAmount: 100
 --- !u!1 &3234161782217634015
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +213,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
-  flashlight: {fileID: 3234161781161049487}
+  flashlight: {fileID: 0}
   textmanager: {fileID: 0}
   leverPuzzle: {fileID: 0}
   safePuzzle: {fileID: 0}

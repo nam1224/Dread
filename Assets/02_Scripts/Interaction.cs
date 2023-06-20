@@ -79,6 +79,7 @@ public class Interaction : MonoBehaviour
                 {
                     case "Baterry":
                         flashlight.ChargeEnergy();
+                        Destroy(item);
                         break;
                     case "Key":
                         item.gameObject.SetActive(false);
