@@ -70,7 +70,6 @@ public class LeverPuzzle : MonoBehaviour
         {
             if (true != isTrue) return;
         }
-
-
+        
     }
 }

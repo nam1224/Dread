@@ -14,10 +14,12 @@ public class SafePuzzle : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip lockOffAudio; //잠금 해제 소리
+
+    Flashlight flashlight;
     private void Start()
     {
         OffSafePuzzle();
-        battery.SetActive(false);
+        flashlight = GameObject.Find("Flashlight").GetComponent<Flashlight>();
     }
 
     public void OnSafePuzzle()
@@ -48,11 +50,8 @@ public class SafePuzzle : MonoBehaviour
         inputField.text = "";
         OffSafePuzzle();
     }
-    public GameObject battery;
     private void ClearSafePuzzle()
     {
-        battery.SetActive(true);
-        this.gameObject.SetActive(false);
+        flashlight.ChargeEnergy();
     }
-
 }
