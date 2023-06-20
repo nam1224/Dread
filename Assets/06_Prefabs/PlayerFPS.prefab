@@ -31,6 +31,27 @@ Transform:
   m_Father: {fileID: 7815522897721959907}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &3234161781161049487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234161781161049485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94ad1694ab36774eb8c53232f5f2e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 3234161782217634009}
+  energy: 0
+  gameManager: {fileID: 0}
+  image: {fileID: 0}
+  brightness: 10
+  chargeAmount: 100
+>>>>>>> Stashed changes
 --- !u!1 &3234161782217634015
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +249,7 @@ AudioSource:
   m_GameObject: {fileID: 4005010330349396566}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6748529853013882155, guid: 2856b2dba35e1e24789bd00c60208afb, type: 2}
   m_audioClip: {fileID: 8300000, guid: a126c92bf6c794346b48c071eb31b0fa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.149
@@ -426,7 +447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1979686911352342, guid: aeb0d59753e7e99418a1c7604f4808a5, type: 3}
       propertyPath: m_Name
-      value: Flashlight (1)
+      value: Flashlight
       objectReference: {fileID: 0}
     - target: {fileID: 4286506682741822, guid: aeb0d59753e7e99418a1c7604f4808a5, type: 3}
       propertyPath: m_RootOrder
