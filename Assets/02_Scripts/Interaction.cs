@@ -19,7 +19,7 @@ public class Interaction : MonoBehaviour
 
     //퍼즐을 작동하기 위함
     public LeverPuzzle leverPuzzle;
-    public SafePuzzle safePuzzle;
+    public SafePuzzleManager SafePuzzleManager;
     //
     public GameObject filmLight;
     //Raycast와 같이 사용할 친구들~
@@ -89,7 +89,7 @@ public class Interaction : MonoBehaviour
                         filmLight.SetActive(true);
                         break;
                     case "Safe":
-                        safePuzzle.OnSafePuzzle();
+                        SafePuzzleManager.CheckSafePuzzle(item);
                         break;
                     default:
                         break;
