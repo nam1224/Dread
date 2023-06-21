@@ -20,10 +20,11 @@ public class Ghost_num1 : Ghost
     public GameObject Ghost_obj;
     public AudioSource GhostAudio;
     public AudioSource GhostAudio1;
-
+    public bool GhostScrem_check =false;
     public AudioClip GhostScrem;
     override public void Update()
     {
+
         if (Spawn == false)
         {
             SpawnTimer -= Time.deltaTime;
@@ -59,6 +60,7 @@ public class Ghost_num1 : Ghost
                 // 플레이어가 범위를 벗어난 경우에 대한 처리 코드 작성
                 if (PlayerInTime <= TriggerTime)
                 {
+                    
                     Ghostact0();
                     //귀신이 플레이어를 죽이는 함수를 호출합니다
 
@@ -91,11 +93,26 @@ public class Ghost_num1 : Ghost
 
     override public void Ghostact0()
     {
+        
+        GhostScrem_check = true;
+        //Debug.Log("GhostKillYou");
 
-        Debug.Log("GhostKillYou");
-        GhostAudio1.PlayOneShot(GhostScrem);
-        //GhostAudio1.Play();
+        
+        if (GhostScrem_check == true)
+        {
+            GhostAudio1.PlayOneShot(GhostScrem);
+            //GhostAudio1.Play();
+            //GhostScrem_check = false;
+            Damaged();
+            Spawn = false;
+            
+        }
         GhostFace.gameObject.SetActive(true);
+        
+
+        
+        //GhostAudio1.Play();
+      //  GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()
     {

@@ -46,6 +46,7 @@ public class SafePuzzle : MonoBehaviour
         {
             textmanager.Text("틀림", "");
             Debug.Log("틀림");
+      
         }
         inputField.text = "";
         OffSafePuzzle();

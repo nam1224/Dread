@@ -39,11 +39,12 @@ public class Flashlight : MonoBehaviour
         }
 
         useTime += Time.deltaTime;
+        /*
         if (Input.GetKeyDown(KeyCode.F))
         {
             LightOn(isOn);
         }
-
+        */
         if (energy>350)
         {
             newWidth = 100;

@@ -84,11 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c71988a67ddf24f86e303e4ad5fbdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerRadius: 3
+  triggerRadius: 1.25
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
-  flashlight: {fileID: 0}
+  flashlight: {fileID: 5028590035385310350}
   textmanager: {fileID: 0}
   leverPuzzle: {fileID: 0}
   safePuzzle: {fileID: 0}
@@ -103,10 +103,10 @@ AudioSource:
   m_GameObject: {fileID: 424979732773955047}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6748529853013882155, guid: 2856b2dba35e1e24789bd00c60208afb, type: 2}
   m_audioClip: {fileID: 8300000, guid: a126c92bf6c794346b48c071eb31b0fa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.149
+  m_Volume: 0.294
   m_Pitch: 1
   Loop: 1
   Mute: 0

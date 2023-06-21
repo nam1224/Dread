@@ -8,7 +8,7 @@ public class Ghost3_Spawn : MonoBehaviour
     public float SpawnTimer = 170f;
     void Start()
     {
-        GameObject Ghost;
+      //  GameObject Ghost;
     }
 
     // Update is called once per frame

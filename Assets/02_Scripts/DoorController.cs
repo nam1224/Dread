@@ -17,6 +17,8 @@ public class DoorController : MonoBehaviour
     
     private bool isPlayerNearby = false; // 플레이어가 문 주변에 있는지 여부
 
+    public AudioSource DoorAudio;
+    public AudioClip DoorOpenClip;
     private void Start()
     {
         // 닫힌 상태와 열린 상태의 회전값 계산
@@ -52,11 +54,13 @@ public class DoorController : MonoBehaviour
     private void OpenDoor()
     {
         doorAnimationCoroutine = StartCoroutine(OpenAnimation());
+        DoorAudio.PlayOneShot(DoorOpenClip);
     }
 
     private void CloseDoor()
     {
         doorAnimationCoroutine = StartCoroutine(CloseAnimation());
+        DoorAudio.PlayOneShot(DoorOpenClip);
     }
 
     private IEnumerator OpenAnimation()
