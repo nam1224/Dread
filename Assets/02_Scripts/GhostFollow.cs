@@ -29,7 +29,7 @@ public class GhostFollow : Ghost
 
         if (LifeTimer <= 0f)
         {
-         Debug.Log("Ghost_num3 Spawn False");
+         //Debug.Log("Ghost_num3 Spawn False");
          Destroy(Ghost_Object,0.5f);
         }
 
