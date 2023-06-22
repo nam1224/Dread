@@ -13,7 +13,7 @@ public class Flashlight : MonoBehaviour
     private const float ENERGY_MAX = 420; //베터리의 최대양
     private int newWidth;
 
-    private float useTime; //사용한 시간
+    public float useTime = 0; //사용한 시간
 
     private bool isOn = false; //손전등 on, off
 
@@ -94,13 +94,13 @@ public class Flashlight : MonoBehaviour
     {
         if (_isOn)
         {
-            Debug.Log("on");
+            //Debug.Log("on");
             light.range = brightness;
             isOn = false;
         }
         else
         {
-            Debug.Log("off");
+            //Debug.Log("off");
             light.range = 0;
             isOn = true;
         }

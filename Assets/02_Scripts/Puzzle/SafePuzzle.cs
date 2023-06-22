@@ -24,12 +24,14 @@ public class SafePuzzle : MonoBehaviour
 
     public void OnSafePuzzle()
     {
+        Time.timeScale = 0;
         inputField.gameObject.SetActive(true);
         gm.OffMouseLock();
     }
     public void OffSafePuzzle()
     {
         inputField.gameObject.SetActive(false);
+        Time.timeScale = 1;
         gm.OnMouseLock();
     }
 
@@ -39,14 +41,14 @@ public class SafePuzzle : MonoBehaviour
         {
             audioSource.PlayOneShot(lockOffAudio, 1.0f);
             textmanager.Text("맞음", "");
-            Debug.Log("맞음");
+            //Debug.Log("맞음");
             ClearSafePuzzle();
         }
         else
         {
             textmanager.Text("틀림", "");
-            Debug.Log("틀림");
-      
+            //Debug.Log("틀림");
+            Debug.Log(password);
         }
         inputField.text = "";
         OffSafePuzzle();
