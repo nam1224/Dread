@@ -10,10 +10,10 @@ public class RaycastInteraction : MonoBehaviour
     public float triggerRadius;
 
     public LeverPuzzle leverPuzzle;
-
     int layerMask = 1 << 8;
     private void Start()
     {
+        layerMask = ~layerMask;
         screenCenter = new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2);
     }
 
@@ -24,7 +24,6 @@ public class RaycastInteraction : MonoBehaviour
 
     private void DetectObjectRaycast()
     {
-        layerMask = ~layerMask;
         Ray ray = cam.ScreenPointToRay(screenCenter);
         Debug.DrawRay(transform.position, transform.forward * triggerRadius, Color.red);
         //Physics.Raycast(ray 원점 위치, 레이저 쏠 방향, 충돌 감지 hit)
