@@ -22,9 +22,10 @@ public class Ghost_num1 : Ghost
     public AudioSource GhostAudio1;
     public bool GhostScrem_check =false;
     public AudioClip GhostScrem;
+
+
     override public void Update()
     {
-
         if (Spawn == false)
         {
             SpawnTimer -= Time.deltaTime;
@@ -84,6 +85,7 @@ public class Ghost_num1 : Ghost
         else if(Spawn != true)
         {
             GhostAudio.Stop();
+
             playerInRange = false;
         }
 
@@ -108,11 +110,9 @@ public class Ghost_num1 : Ghost
             
         }
         GhostFace.gameObject.SetActive(true);
-        
 
-        
         //GhostAudio1.Play();
-      //  GhostFace.gameObject.SetActive(true);
+        //  GhostFace.gameObject.SetActive(true);
     }
     override public void Ghostact1()
     {
